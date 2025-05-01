@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "primeng/resources/themes/md-dark-indigo/theme.css";
+@import "primeng/resources/primeng.css";
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    background-color: #212529;
+    font-weight: 500;
+    color: white;
+    padding: 5px;
+}

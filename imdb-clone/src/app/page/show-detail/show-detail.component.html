@@ -1,0 +1,69 @@
+<ng-container *ngIf="show$ | async as show">
+    <app-slider [slides]="[show]" [isHeader]="true"></app-slider>
+
+    <p-tabView>
+        <p-tabPanel header="Overview">
+            <div class="row">
+                <div class="col-4">
+                    <img class="poster" [src]="imageSize.medium + show.poster_path " alt="">
+                </div>
+                <div class="col-8">
+                    <h2>Overview</h2>
+                    <p class="overview">{{show.overview}}</p>
+                    <div class="stat">
+                        <div class="label">Release Date :</div>
+                        <div class="value">
+                            {{show.release_date}}
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Language :</div>
+                        <div class="value">
+                            {{show.original_language}}
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Revenue</div>
+                        <div class="value">
+                            {{show.revenue | currency}}
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Runtime</div>
+                        <div class="value">
+                            {{show.runtime}} min
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Status</div>
+                        <div class="value">
+                            {{show.status}}
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Geners</div>
+                        <div class="value">
+                            <span *ngFor="let genres of show.genres">
+                             {{genres.name  }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Videos">
+            <ng-container *ngIf="showVideos$ | async as showVideos">
+                <div class="row">
+                    <div class="col-4" *ngFor="let showVideo of showVideos">
+                        <app-video-embed [key]="showVideo.key"></app-video-embed>
+                    </div>
+                </div>
+            </ng-container>
+        </p-tabPanel>
+        <p-tabPanel header="Photos">
+            <p>
+                At vero eos et accusamus et iusto odio dignissimos...
+            </p>
+        </p-tabPanel>
+    </p-tabView>
+</ng-container>
