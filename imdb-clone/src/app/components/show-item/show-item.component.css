@@ -6,12 +6,14 @@
     border: 1px solid #999;
     margin: 0.4rem 0;
 }
+
 .show-item-image img {
     width: 100%;
     height: 200px;
     border-radius: 5px;
     object-fit: cover;
 }
+
 .show-item-rating {
     position: absolute;
     display: flex;
@@ -22,11 +24,13 @@
     border-radius: 5px;
     padding: 5px 10px;
 }
+
 .bi {
     font-size: 1.2rem;
     color: orange;
-    margin-right:5px;
+    margin-right: 5px;
 }
+
 .show-item-title {
     font-weight: 500;
     font-size: 0.9rem;
@@ -38,3 +42,9 @@
     padding: 0 10px;
 }
 
+default-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+}

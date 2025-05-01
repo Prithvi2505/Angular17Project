@@ -3,8 +3,11 @@
         <i class="bi bi-star"></i>
         <span>{{showItem.vote_average}}/10</span>
     </div>
-    <div class="show-item-image">
+    <div *ngIf="showItem.backdrop_path;" class="show-item-image">
         <img [src]="baseUrl+showItem.backdrop_path" alt="">
+    </div>
+    <div *ngIf="!showItem.backdrop_path;" class="show-item-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1_eA-HbefrOwlgxELU02R8XGgqQkDRbZjw&s" alt="">
     </div>
     <div class="show-item-title">{{showItem.title}}</div>
 </a>

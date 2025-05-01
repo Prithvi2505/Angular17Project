@@ -31,3 +31,15 @@
 .stat .value {
     color: #f53b3e;
 }
+
+.actor {
+    padding: 10px;
+}
+
+.actor img {
+    width: 100%;
+}
+
+.actorInfo {
+    text-align: center;
+}
