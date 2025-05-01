@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie, MovieDto } from '../../type/movie';
 import { map, Observable } from 'rxjs';
 import { TvShowService } from '../../services/tv-show.service';
-import { mapToMovie } from '../../type/tvshow';
+import { mapToMovies } from '../../type/tvshow';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     this.upcomingMovies$ = this.moviesService.getMovieByType('upcoming',12);
     this.topRatedMovies$ = this.moviesService.getMovieByType('top_rated',12);
     this.populartvShow$ = this.tvShowService.getTvShowByType('popular',12).pipe(
-      map(mapToMovie)
+      map(mapToMovies)
     )
 
   }

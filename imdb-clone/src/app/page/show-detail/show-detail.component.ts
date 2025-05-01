@@ -1,12 +1,14 @@
 import { Movie } from './../../type/movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, OnSameUrlNavigation } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { MoviesService } from '../../services/movies.service';
 import { ImageSizes } from '../../type/image_size';
 import { Video } from '../../type/videos';
 import { Image } from '../../type/images';
 import { Actor } from '../../type/credits';
+import { TvShowService } from '../../services/tv-show.service';
+import { mapToMovie, mapToMovies } from '../../type/tvshow';
 
 @Component({
   selector: 'app-show-detail',
@@ -16,23 +18,36 @@ import { Actor } from '../../type/credits';
 })
 export class ShowDetailComponent implements OnInit {
   showId = '';
+  showType: 'tv' | 'movie' = 'movie';
   imageSize = ImageSizes;
   show$ !: Observable<Movie>;
   showVideos$ !: Observable<Video[]>
   showImages$ !: Observable<Image[]>
   showCast$ !: Observable<Actor[]>
-  similarMovies$ !: Observable<Movie[]>
-  constructor(private router: ActivatedRoute, private movieService: MoviesService) {}
+  similarShows$ !: Observable<Movie[]>
+  constructor(private router: ActivatedRoute, private movieService: MoviesService, private tvShowService : TvShowService) {}
 
   ngOnInit() {
-    this.router.params.subscribe((params) => {
-      this.showId = params['id'];
-    })
-    this.show$ = this.movieService.getMovieById(this.showId)
-    this.showVideos$ = this.movieService.getMovieVideo(this.showId)
-    this.showImages$ = this.movieService.getMovieVImage(this.showId)
-    this.showCast$ = this.movieService.getMovieVCast(this.showId)
-    this.similarMovies$ = this.movieService.getSimilarMovies(this.showId,12)
+    this.showId = this.router.snapshot.params['id'];
+    this.showType = this.router.snapshot.params['type'];
+    if(this.showType === 'movie'){
+        this.show$ = this.movieService.getMovieById(this.showId)
+      this.showVideos$ = this.movieService.getMovieVideo(this.showId)
+      this.showImages$ = this.movieService.getMovieVImage(this.showId)
+      this.showCast$ = this.movieService.getMovieVCast(this.showId)
+      this.similarShows$ = this.movieService.getSimilarMovies(this.showId,12)
+    }
+    if(this.showType === 'tv'){
+      this.show$ = this.tvShowService
+        .getTvShowById(this.showId)
+        .pipe(map(mapToMovie));
+      this.showVideos$ = this.tvShowService.getTvShowVideos(this.showId);
+      this.showImages$ = this.tvShowService.getTvShowImages(this.showId);
+      this.showCast$ = this.tvShowService.getTvShowCast(this.showId);
+      this.similarShows$ = this.tvShowService
+        .getTvShowSimilar(this.showId)
+        .pipe(map(mapToMovies));
+    }
   }
 
 }

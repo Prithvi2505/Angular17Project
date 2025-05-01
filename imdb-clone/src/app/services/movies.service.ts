@@ -52,4 +52,9 @@ export class MoviesService {
       return data.results.slice(0,count)
     }));
   }
+  SearchMovies(page:number, search_value ?: string) {
+    const uri = search_value ? 'search/movie' : 'movie/popular';
+    return this.http
+    .get<MovieDto>(`${this.apiUrl}/${uri}?query=${search_value}&page=${page}&api_key=${this.apikey}`)
+  }
 }

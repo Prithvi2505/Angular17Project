@@ -10,5 +10,6 @@ import { imageBaseUrl } from '../../type/image_size';
 })
 export class ShowItemComponent {
   @Input() showItem : Movie | null = null ; 
+  @Input() showType: 'tv' | 'movie' = 'movie';
   baseUrl = imageBaseUrl;
 }

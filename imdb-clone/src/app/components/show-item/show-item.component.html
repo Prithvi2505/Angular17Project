@@ -1,4 +1,4 @@
-<a class="show-item" *ngIf="showItem" [routerLink]="'detail/'+ showItem.id">
+<a class="show-item" *ngIf="showItem" [routerLink]="'detail/'+ showItem.id + '/' + showType">
     <div class="show-item-rating">
         <i class="bi bi-star"></i>
         <span>{{showItem.vote_average}}/10</span>
@@ -9,5 +9,5 @@
     <div *ngIf="!showItem.backdrop_path;" class="show-item-image">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1_eA-HbefrOwlgxELU02R8XGgqQkDRbZjw&s" alt="">
     </div>
-    <div class="show-item-title">{{showItem.title}}</div>
+    <div class="show-item-title">{{showItem.original_title}}</div>
 </a>
