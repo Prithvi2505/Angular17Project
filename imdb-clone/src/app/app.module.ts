@@ -21,6 +21,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { PaginatorModule } from 'primeng/paginator';
 import { GenresComponent } from './page/genres/genres.component';
+import { LoginComponent } from './page/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GenresComponent } from './page/genres/genres.component';
     VideoEmbedComponent,
     ShowListComponent,
     GenresComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

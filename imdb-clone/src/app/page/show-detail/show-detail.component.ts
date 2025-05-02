@@ -9,6 +9,7 @@ import { Image } from '../../type/images';
 import { Actor } from '../../type/credits';
 import { TvShowService } from '../../services/tv-show.service';
 import { mapToMovie, mapToMovies } from '../../type/tvshow';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-detail',
@@ -25,11 +26,11 @@ export class ShowDetailComponent implements OnInit {
   showImages$ !: Observable<Image[]>
   showCast$ !: Observable<Actor[]>
   similarShows$ !: Observable<Movie[]>
-  constructor(private router: ActivatedRoute, private movieService: MoviesService, private tvShowService : TvShowService) {}
+  constructor(private route: ActivatedRoute, private movieService: MoviesService, private tvShowService : TvShowService, private router: Router) {}
 
   ngOnInit() {
-    this.showId = this.router.snapshot.params['id'];
-    this.showType = this.router.snapshot.params['type'];
+    this.showId = this.route.snapshot.params['id'];
+    this.showType = this.route.snapshot.params['type'];
     if(this.showType === 'movie'){
         this.show$ = this.movieService.getMovieById(this.showId)
       this.showVideos$ = this.movieService.getMovieVideo(this.showId)
@@ -49,5 +50,7 @@ export class ShowDetailComponent implements OnInit {
         .pipe(map(mapToMovies));
     }
   }
+
+ 
 
 }

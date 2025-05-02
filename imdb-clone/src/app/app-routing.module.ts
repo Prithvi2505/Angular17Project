@@ -4,14 +4,15 @@ import { HomeComponent } from './page/home/home.component';
 import { ShowDetailComponent } from './page/show-detail/show-detail.component';
 import { ShowListComponent } from './page/show-list/show-list.component';
 import { GenresComponent } from './page/genres/genres.component';
+import { LoginComponent } from './page/login/login.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
+  {path:'', component:LoginComponent},
+  {path:'home', component:HomeComponent},
   {path:'List/:type', component:ShowListComponent},
-  {path:'detail/:id/:type', component:ShowDetailComponent},
+  {path:'home/detail/:id/:type', component:ShowDetailComponent},
   {path:'genres', component:GenresComponent},
-  {path:'genres/:genreId', component:GenresComponent}
-
+  {path:'genres/:genreId', component:GenresComponent},
 ];
 
 @NgModule({
