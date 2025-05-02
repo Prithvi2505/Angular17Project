@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Movie, MovieDto } from '../type/movie';
+import { GenresDto, Movie, MovieDto } from '../type/movie';
 import { map } from 'rxjs';
 import { VideoDto } from '../type/videos';
 import { ImagesDto } from '../type/images';
@@ -32,14 +32,14 @@ export class MoviesService {
       return data.results
     }));
   }
-  getMovieVImage(id:string){
+  getMovieImage(id:string){
      return this.http
     .get<ImagesDto>(`${this.apiUrl}/movie/${id}/images?api_key=${this.apikey}`)
     .pipe(map((data) => {
       return data.backdrops
     }));
   }
-  getMovieVCast(id:string){
+  getMovieCast(id:string){
      return this.http
     .get<CreditDto>(`${this.apiUrl}/movie/${id}/credits?api_key=${this.apikey}`)
     .pipe(map((data) => {
@@ -56,5 +56,17 @@ export class MoviesService {
     const uri = search_value ? 'search/movie' : 'movie/popular';
     return this.http
     .get<MovieDto>(`${this.apiUrl}/${uri}?query=${search_value}&page=${page}&api_key=${this.apikey}`)
+  }
+  getMovieGenres() {
+    return this.http
+    .get<GenresDto>(`${this.apiUrl}/genre/movie/list?api_key=${this.apikey}`).pipe(map((data) => {
+      return data.genres
+    }));
+  }
+  getMoviesByGenresId(id:string, pageNumber = 1) {
+    return this.http
+    .get<MovieDto>(`${this.apiUrl}/discover/movie?with_genres=${id}&page=${pageNumber}&api_key=${this.apikey}`).pipe(map((data) => {
+      return data.results
+    }));
   }
 }

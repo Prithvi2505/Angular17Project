@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 genres-links">
+            <ng-container *ngIf="genres$ | async as genres" >
+                <a *ngFor="let genre of genres"
+                [routerLink]="'/genres/'+ genre.id"
+                role="button"
+                aria-hidden="true"
+                > {{genre.name}}</a>
+            </ng-container>
+            <ng-container *ngIf="genresMovie$ |async as genresMovies">
+                <div class="row">
+                    <div class="col-3" *ngFor="let show of genresMovies">
+                        <app-show-item [showItem]="show"> </app-show-item>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

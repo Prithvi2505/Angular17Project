@@ -1,3 +1,4 @@
+
 export type Movie = {
     id:  number,
     backdrop_path: string,
@@ -24,6 +25,9 @@ export type MovieDto = {
 }
 
 export type Genres = {
-    id: number,
+    id: string,
     name: string,
+}
+export type GenresDto = {
+    genres : Genres[], 
 }

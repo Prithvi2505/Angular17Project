@@ -33,8 +33,8 @@ export class ShowDetailComponent implements OnInit {
     if(this.showType === 'movie'){
         this.show$ = this.movieService.getMovieById(this.showId)
       this.showVideos$ = this.movieService.getMovieVideo(this.showId)
-      this.showImages$ = this.movieService.getMovieVImage(this.showId)
-      this.showCast$ = this.movieService.getMovieVCast(this.showId)
+      this.showImages$ = this.movieService.getMovieImage(this.showId)
+      this.showCast$ = this.movieService.getMovieCast(this.showId)
       this.similarShows$ = this.movieService.getSimilarMovies(this.showId,12)
     }
     if(this.showType === 'tv'){

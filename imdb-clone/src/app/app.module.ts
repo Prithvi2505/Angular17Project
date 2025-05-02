@@ -7,8 +7,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './page/home/home.component';
-import { TvShowListComponent } from './page/tv-show-list/tv-show-list.component';
-import { GenersComponent } from './page/geners/geners.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
@@ -22,6 +20,7 @@ import { ShowListComponent } from './page/show-list/show-list.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { PaginatorModule } from 'primeng/paginator';
+import { GenresComponent } from './page/genres/genres.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +28,13 @@ import { PaginatorModule } from 'primeng/paginator';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    TvShowListComponent,
-    GenersComponent,
     SliderComponent,
     BannerComponent,
     ShowItemComponent,
     ShowDetailComponent,
     VideoEmbedComponent,
     ShowListComponent,
+    GenresComponent,
   ],
   imports: [
     BrowserModule,
