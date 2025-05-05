@@ -21,6 +21,14 @@ export class MoviesService {
       return data.results.slice(0,count)
     }));
   }
+
+  getPopularMovie() {
+    return this.http
+    .get<MovieDto>(`${this.apiUrl}/movie/popular?api_key=${this.apikey}`).pipe(map((data) => {
+      return data.results
+    }));
+  }
+
   getMovieById(id:string) {
     return this.http
     .get<Movie>(`${this.apiUrl}/movie/${id}?api_key=${this.apikey}`);

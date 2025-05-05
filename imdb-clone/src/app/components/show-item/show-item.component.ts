@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Movie } from '../../type/movie';
 import { imageBaseUrl } from '../../type/image_size';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-item',
@@ -12,4 +13,5 @@ export class ShowItemComponent {
   @Input() showItem : Movie | null = null ; 
   @Input() showType: 'tv' | 'movie' = 'movie';
   baseUrl = imageBaseUrl;
+  
 }

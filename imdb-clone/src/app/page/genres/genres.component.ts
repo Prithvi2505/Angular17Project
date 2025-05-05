@@ -23,6 +23,9 @@ export class GenresComponent  implements OnInit{
     this.route.params.subscribe((params) => {
       this.genreId = params['genreId'];
       this.genresMovie$ = this.movieService.getMoviesByGenresId(this.genreId);
+      if(!this.genreId){
+        this.genresMovie$ = this.movieService.getPopularMovie();
+      }
     });
     this.genres$ = this.movieService.getMovieGenres();
   }
