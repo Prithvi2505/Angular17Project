@@ -1,0 +1,13 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class NewMovieService {
+  apiUrl = 'http://localhost:3000/newMovie';
+  constructor(private http:HttpClient) { }
+  getNewMovies() {
+    return this.http.get(this.apiUrl);
+  }
+}

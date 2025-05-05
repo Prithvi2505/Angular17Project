@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
@@ -7,29 +8,27 @@ import { Observable, of, throwError } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private router : Router) { }
+  constructor(private router : Router, private http:HttpClient) { }
+  apiurl = 'http://localhost:3000/user';
 
-  setToken(token:string):void {
-    localStorage.setItem('token',token);
+  getAll() {
+    return this.http.get(this.apiurl)
   }
-  getToken(): string | null {
-    return localStorage.getItem('token');
+  getByCode(code:any){
+    return this.http.get(this.apiurl+'/'+ code);
   }
+
+  proceedRegister(inputData: any) {
+    return this.http.post(this.apiurl,inputData)
+  }
+
   isLoggedIn() {
-    return this.getToken() !== null;
-  }
-  logout(){
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
-  }
-  isadmin({username,password}:any):Observable<any>{
-    if(username == 'admin' && password=='admin'){
-      this.setToken('aasdfghjklqwertyuiopZxcvbnm');
-      return of({name: 'admin',email:'admin@gmail.com'});
-    }
-    return throwError(new Error('failed to login'));
+    return sessionStorage.getItem('username') != null;
   }
 
+  getUserRole() {
+    return sessionStorage.getItem('userRole')!= null ? sessionStorage.getItem('userRole')?.toString() : '';
+  }
 
 }
 

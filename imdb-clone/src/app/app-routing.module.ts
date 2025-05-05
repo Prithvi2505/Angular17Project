@@ -6,16 +6,19 @@ import { ShowListComponent } from './page/show-list/show-list.component';
 import { GenresComponent } from './page/genres/genres.component';
 import { LoginComponent } from './page/login/login.component';
 import { authGuard } from './guard/auth.guard';
+import { NewMovieListComponent } from './page/new-movie-list/new-movie-list.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'', redirectTo:'login',pathMatch:'full'},
-  {path:'home', component:HomeComponent},
-  {path:'List/:type', component:ShowListComponent},
-  {path:'home/detail/:id/:type', component:ShowDetailComponent},
-  {path:'genres', component:GenresComponent},
-  {path:'genres/:genreId', component:GenresComponent},
-  {path:'admin',canActivate:[authGuard],loadChildren: () => import('./module/admin/admin.module').then((m)=> m.AdminModule)}
+  {path:'home', component:HomeComponent,canActivate:[authGuard]},
+  {path:'List/:type', component:ShowListComponent,canActivate:[authGuard]},
+  {path:'home/detail/:id/:type', component:ShowDetailComponent,canActivate:[authGuard]},
+  {path:'genres', component:GenresComponent,canActivate:[authGuard]},
+  {path:'genres/:genreId', component:GenresComponent,canActivate:[authGuard]},
+  {path:'addmovie', component:NewMovieListComponent,canActivate:[authGuard]},
+  {path:'newmovie', component:NewMovieListComponent,canActivate:[authGuard]},
+  {path:'admin', canActivate:[authGuard] ,loadChildren: () => import('./module/admin/admin.module').then((m)=> m.AdminModule)}
 ];
 
 @NgModule({

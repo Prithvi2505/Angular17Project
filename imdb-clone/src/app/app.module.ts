@@ -21,6 +21,12 @@ import { PaginatorModule } from 'primeng/paginator';
 import { GenresComponent } from './page/genres/genres.component';
 import { LoginComponent } from './page/login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NewMovieListComponent } from './page/new-movie-list/new-movie-list.component';
+
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -34,6 +40,7 @@ import { SharedModule } from './shared/shared.module';
     ShowListComponent,
     GenresComponent,
     LoginComponent,
+    NewMovieListComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,9 +54,15 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     PaginatorModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MatPaginator,
+    MatPaginatorModule,
+    MatTableModule,
+    MatButtonModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

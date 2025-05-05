@@ -1,0 +1,62 @@
+{
+  "user": [
+    {
+      "id": "user1",
+      "password": "12345678",
+      "email": "user1@gmail.com",
+      "role": "admin"
+    }
+  ],
+  "newMovie" : [
+    {
+    "id":"dummy",
+    "name":"dummyMovie",
+    "genre": "Horror",
+    "releaseDate":"01-01-25",
+    "duration":"130"
+    },
+    {
+      "id":"dummy",
+      "name":"dummyMovie",
+      "genre": "Horror",
+      "releaseDate":"01-01-25",
+      "duration":"130"
+      },
+    {
+        "id":"dummy",
+        "name":"dummyMovie",
+        "genre": "Horror",
+        "releaseDate":"01-01-25",
+        "duration":"130"
+        },
+      {
+          "id":"dummy",
+          "name":"dummyMovie",
+          "genre": "Horror",
+          "releaseDate":"01-01-25",
+          "duration":"130"
+        },
+      {
+          "id":"dummy",
+          "name":"dummyMovie",
+          "genre": "Horror",
+          "releaseDate":"01-01-25",
+          "duration":"130"
+        },
+        {
+          "id":"dummy",
+          "name":"dummyMovie",
+          "genre": "Horror",
+          "releaseDate":"01-01-25",
+          "duration":"130"
+          },
+          {
+            "id":"dummy",
+            "name":"dummyMovie",
+            "genre": "Horror",
+            "releaseDate":"01-01-25",
+            "duration":"130"
+            }
+      
+  ]
+}
