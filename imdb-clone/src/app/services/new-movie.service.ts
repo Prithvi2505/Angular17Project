@@ -10,4 +10,7 @@ export class NewMovieService {
   getNewMovies() {
     return this.http.get(this.apiUrl);
   }
+  addNewMovie(inputData:any){
+    return this.http.post(this.apiUrl,inputData);
+  }
 }

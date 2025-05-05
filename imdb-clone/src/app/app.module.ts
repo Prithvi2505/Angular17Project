@@ -27,6 +27,15 @@ import { NewMovieListComponent } from './page/new-movie-list/new-movie-list.comp
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import { NewMovieFormComponent } from './page/new-movie-form/new-movie-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+
+import {MatInputModule} from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
+
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -41,6 +50,7 @@ import {MatButtonModule} from '@angular/material/button';
     GenresComponent,
     LoginComponent,
     NewMovieListComponent,
+    NewMovieFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,9 +69,16 @@ import {MatButtonModule} from '@angular/material/button';
     MatPaginatorModule,
     MatTableModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule
+    
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideNativeDateAdapter(),
   ],
   bootstrap: [AppComponent]
 })

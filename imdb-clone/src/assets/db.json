@@ -5,58 +5,70 @@
       "password": "12345678",
       "email": "user1@gmail.com",
       "role": "admin"
-    }
-  ],
-  "newMovie" : [
-    {
-    "id":"dummy",
-    "name":"dummyMovie",
-    "genre": "Horror",
-    "releaseDate":"01-01-25",
-    "duration":"130"
     },
     {
-      "id":"dummy",
-      "name":"dummyMovie",
-      "genre": "Horror",
-      "releaseDate":"01-01-25",
-      "duration":"130"
-      },
+      "id": "user2",
+      "password": "123456789",
+      "email": "user2@gmail.com",
+      "role": ""
+    }
+  ],
+  "newMovie": [
     {
-        "id":"dummy",
-        "name":"dummyMovie",
-        "genre": "Horror",
-        "releaseDate":"01-01-25",
-        "duration":"130"
-        },
-      {
-          "id":"dummy",
-          "name":"dummyMovie",
-          "genre": "Horror",
-          "releaseDate":"01-01-25",
-          "duration":"130"
-        },
-      {
-          "id":"dummy",
-          "name":"dummyMovie",
-          "genre": "Horror",
-          "releaseDate":"01-01-25",
-          "duration":"130"
-        },
-        {
-          "id":"dummy",
-          "name":"dummyMovie",
-          "genre": "Horror",
-          "releaseDate":"01-01-25",
-          "duration":"130"
-          },
-          {
-            "id":"dummy",
-            "name":"dummyMovie",
-            "genre": "Horror",
-            "releaseDate":"01-01-25",
-            "duration":"130"
-            }
-      
+      "id": "dummy",
+      "name": "dummyMovie",
+      "genre": "Horror",
+      "releaseDate": "01-01-25",
+      "duration": "130"
+    },
+    {
+      "id": "dummy",
+      "name": "dummyMovie",
+      "genre": "Horror",
+      "releaseDate": "01-01-25",
+      "duration": "130"
+    },
+    {
+      "id": "dummy",
+      "name": "dummyMovie",
+      "genre": "Horror",
+      "releaseDate": "01-01-25",
+      "duration": "130"
+    },
+    {
+      "id": "dummy",
+      "name": "dummyMovie",
+      "genre": "Horror",
+      "releaseDate": "01-01-25",
+      "duration": "130"
+    },
+    {
+      "id": "dummy",
+      "name": "dummyMovie",
+      "genre": "Horror",
+      "releaseDate": "01-01-25",
+      "duration": "130"
+    },
+    {
+      "id": "dummy",
+      "name": "dummyMovie",
+      "genre": "Horror",
+      "releaseDate": "01-01-25",
+      "duration": "130"
+    },
+    {
+      "id": "dummy",
+      "name": "dummyMovie",
+      "genre": "Horror",
+      "releaseDate": "01-01-25",
+      "duration": "130"
+    },
+    {
+      "id": "168789",
+      "name": "qwert",
+      "genre": "Action",
+      "releaseDate": "2025-05-06T18:30:00.000Z",
+      "duration": 1234
+    }
   ]
 }
