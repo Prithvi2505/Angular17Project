@@ -11,64 +11,56 @@
       "password": "123456789",
       "email": "user2@gmail.com",
       "role": ""
+    },
+    {
+      "id": "user3",
+      "password": "12344567",
+      "email": "prithvigohil4@gmail.com",
+      "role": ""
     }
   ],
   "newMovie": [
     {
-      "id": "dummy",
-      "name": "dummyMovie",
-      "genre": "Horror",
-      "releaseDate": "01-01-25",
-      "duration": "130"
+      "id": "1245463",
+      "name": "movie767",
+      "genre": "Comedy",
+      "releaseDate": "2025-04-30T18:30:00.000Z",
+      "duration": 123
     },
     {
-      "id": "dummy",
-      "name": "dummyMovie",
-      "genre": "Horror",
-      "releaseDate": "01-01-25",
-      "duration": "130"
+      "id": "1",
+      "name": "one",
+      "genre": "Crime",
+      "releaseDate": "2025-04-30T18:30:00.000Z",
+      "duration": 12
     },
     {
-      "id": "dummy",
-      "name": "dummyMovie",
-      "genre": "Horror",
-      "releaseDate": "01-01-25",
-      "duration": "130"
+      "id": "2",
+      "name": "two",
+      "genre": "Crime",
+      "releaseDate": "2025-05-01T18:30:00.000Z",
+      "duration": 56
     },
     {
-      "id": "dummy",
-      "name": "dummyMovie",
-      "genre": "Horror",
-      "releaseDate": "01-01-25",
-      "duration": "130"
+      "id": "3",
+      "name": "tree house",
+      "genre": "Comedy",
+      "releaseDate": "2025-05-08T18:30:00.000Z",
+      "duration": 67
     },
     {
-      "id": "dummy",
-      "name": "dummyMovie",
-      "genre": "Horror",
-      "releaseDate": "01-01-25",
-      "duration": "130"
+      "id": "4",
+      "name": "for all of us",
+      "genre": "History",
+      "releaseDate": "2017-04-03T18:30:00.000Z",
+      "duration": 444
     },
     {
-      "id": "dummy",
-      "name": "dummyMovie",
-      "genre": "Horror",
-      "releaseDate": "01-01-25",
-      "duration": "130"
-    },
-    {
-      "id": "dummy",
-      "name": "dummyMovie",
-      "genre": "Horror",
-      "releaseDate": "01-01-25",
-      "duration": "130"
-    },
-    {
-      "id": "168789",
-      "name": "qwert",
-      "genre": "Action",
-      "releaseDate": "2025-05-06T18:30:00.000Z",
-      "duration": 1234
+      "id": "5",
+      "name": "high Five",
+      "genre": "Thriller",
+      "releaseDate": "2025-05-04T18:30:00.000Z",
+      "duration": 10.2
     }
   ]
 }

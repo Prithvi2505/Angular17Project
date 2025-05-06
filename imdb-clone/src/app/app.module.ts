@@ -34,8 +34,18 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
-
+import { MatIconModule } from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogActions,
+  MatDialogClose,
+} from '@angular/material/dialog';
+import { UpdateMovieComponent } from './page/update-movie/update-movie.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +61,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     LoginComponent,
     NewMovieListComponent,
     NewMovieFormComponent,
+    UpdateMovieComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,8 +84,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatCardModule,
     MatInputModule,
     MatSelectModule,
-    MatDatepickerModule
-    
+    MatDatepickerModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+    MatIconModule,
   ],
   providers: [
     provideAnimationsAsync(),

@@ -1,0 +1,40 @@
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <h1>Update Movie Details</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form" [formGroup]="updateMovieForm" (ngSubmit)="updateMovie()">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Movie Id</mat-label>
+                    <input matInput placeholder="Movie Id" formControlName="id">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Movie Name</mat-label>
+                    <input matInput placeholder="Movie Name" formControlName="name">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Genre</mat-label>
+                    <mat-select *ngIf="genres$ | async as genres" formControlName="genre">
+                        @for (genre of genres; track genre) {
+                        <mat-option [value]="genre.name">{{genre.name}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Release Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="releaseDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Duration</mat-label>
+                    <input type="number" matInput placeholder="Duration in mintues" formControlName="duration">
+                </mat-form-field>
+                <button mat-flat-button color="primary">Update Movie</button>
+                <a mat-dialog-close mat-flat-button color="warn">Cancel</a>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -10,7 +10,16 @@ export class NewMovieService {
   getNewMovies() {
     return this.http.get(this.apiUrl);
   }
+  getByCode(code:any){
+    return this.http.get(this.apiUrl+'/'+ code);
+  }
   addNewMovie(inputData:any){
     return this.http.post(this.apiUrl,inputData);
+  }
+  updateMovieByCode(code:any, inputData:any){
+    return this.http.put(this.apiUrl+'/'+code,inputData);
+  }
+  deleteMovieByCode(code:any) {
+    return this.http.delete(this.apiUrl+'/'+code);
   }
 }
