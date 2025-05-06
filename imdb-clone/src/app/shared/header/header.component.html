@@ -27,9 +27,9 @@
                     <li class="nav-item" *ngIf="isadmin">
                         <a class="nav-link text-danger" href="newmovie">New Movie</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link text-danger" href="login">Logout</a>
-                    </li> -->
+                    <li class="nav-item" *ngIf="isloggedIn">
+                        <button type="button" class="btn btn-outline-danger" (click)="logout()">Logout</button>
+                    </li>
                 </ul>
             </div>
         </div>

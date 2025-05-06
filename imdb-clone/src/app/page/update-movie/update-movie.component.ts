@@ -4,7 +4,7 @@ import { NewMovieService } from '../../services/new-movie.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Genres } from '../../type/movie';
+import { Genres, newMovie } from '../../type/movie';
 import { MAT_DIALOG_DATA,MatDialogRef } from '@angular/material/dialog';
 
 @Component({

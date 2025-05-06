@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements DoCheck {
   isadmin = false;
   isnav = false;
+  isloggedIn = false;
   constructor(private auth:AuthService,private router:Router) {}
 
   ngDoCheck(): void {
@@ -28,6 +29,18 @@ export class HeaderComponent implements DoCheck {
     else{
       this.isadmin = false;
     }
+    if(this.auth.isLoggedIn()){
+      this.isloggedIn = true;
+    }
+    else {
+      this.isloggedIn = false
+    }
 
   }
+
+  logout(){
+    this.isloggedIn = false;
+    this.router.navigate(['/login']);
+  }
+
 }

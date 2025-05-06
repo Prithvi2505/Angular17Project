@@ -20,6 +20,6 @@ export class NewMovieService {
     return this.http.put(this.apiUrl+'/'+code,inputData);
   }
   deleteMovieByCode(code:any) {
-    return this.http.delete(this.apiUrl+'/'+code);
+    return this.http.delete(this.apiUrl+'/'+ code);
   }
 }

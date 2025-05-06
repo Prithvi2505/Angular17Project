@@ -49,7 +49,7 @@ export class NewMovieListComponent {
 
   deleteMovie(code:any){
     this.service.deleteMovieByCode(code).subscribe( res => {
-      alert('Movie delete Successfully')
+      alert('Movie delete')
       this.loadMovies();
     })
   }

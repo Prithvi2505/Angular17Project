@@ -31,3 +31,11 @@ export type Genres = {
 export type GenresDto = {
     genres : Genres[], 
 }
+
+export type newMovie = {
+    id : string,
+    name: string,
+    genre: string,
+    releaseDate : string,
+    duration : number,
+}

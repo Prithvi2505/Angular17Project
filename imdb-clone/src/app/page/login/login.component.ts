@@ -47,9 +47,12 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['home'])
         }
         else{
-          alert("Wrong")
+          alert("Wrong Credentials")
         }
       })
+    }
+    else{
+      alert("Wrong Credentials")
     }
   }
 
