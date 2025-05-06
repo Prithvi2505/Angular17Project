@@ -23,8 +23,6 @@ export class UpdateMovieComponent {
     duration : new FormControl(''),
   })
 
-
-  
   constructor( 
     private movieService:MoviesService,
     private newMovieservice: NewMovieService,

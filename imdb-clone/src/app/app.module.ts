@@ -46,6 +46,7 @@ import {
   MatDialogClose,
 } from '@angular/material/dialog';
 import { UpdateMovieComponent } from './page/update-movie/update-movie.component';
+import { NotFoundComponent } from './page/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { UpdateMovieComponent } from './page/update-movie/update-movie.component
     NewMovieListComponent,
     NewMovieFormComponent,
     UpdateMovieComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
