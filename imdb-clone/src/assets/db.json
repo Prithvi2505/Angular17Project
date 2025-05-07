@@ -21,13 +21,6 @@
   ],
   "newMovie": [
     {
-      "id": "1245463",
-      "name": "movie767",
-      "genre": "Comedy",
-      "releaseDate": "2025-04-30T18:30:00.000Z",
-      "duration": 123
-    },
-    {
       "id": "1",
       "name": "one",
       "genre": "Crime",
@@ -43,8 +36,8 @@
     },
     {
       "id": "3",
-      "name": "tree house",
-      "genre": "Comedy",
+      "name": "tree houseee",
+      "genre": "Action",
       "releaseDate": "2025-05-08T18:30:00.000Z",
       "duration": 67
     },
