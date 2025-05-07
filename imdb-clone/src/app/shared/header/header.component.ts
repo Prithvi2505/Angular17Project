@@ -1,6 +1,7 @@
 import { Component, DoCheck } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { NgAuthService } from '../../services/ng-auth.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements DoCheck {
   isadmin = false;
   isnav = false;
   isloggedIn = false;
-  constructor(private auth:AuthService,private router:Router) {}
+  constructor(private auth:AuthService,private router:Router,private service :NgAuthService) {}
 
   ngDoCheck(): void {
     let currenturl = this.router.url;
@@ -23,13 +24,13 @@ export class HeaderComponent implements DoCheck {
       this.isnav = true
     }
 
-    if(this.auth.getUserRole() === 'admin'){
+    if(this.service.getUserRole() === 'admin'){
       this.isadmin = true;
     }
     else{
       this.isadmin = false;
     }
-    if(this.auth.isLoggedIn()){
+    if(this.service.isLoggedIn()){
       this.isloggedIn = true;
     }
     else {

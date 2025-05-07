@@ -8,17 +8,18 @@
                 <input type="text" name="txt" placeholder="User name" required="" formControlName="id">
                 <input type="email" name="email" placeholder="Email" required="" formControlName="email">
                 <input type="password" name="pswd" placeholder="Password" required="" formControlName="password">
-                <button >Sign up</button>
+                <button>Sign up</button>
             </form>
         </div>
 
         <div class="login">
-            <form [formGroup]="loginForm" (ngSubmit)="proceedLogin()" >
-                
+            <form [formGroup]="loginForm" (ngSubmit)="proceedLogin()">
+
                 <label for="chk" aria-hidden="true">Login</label>
-                <input type="text" name="username" placeholder="Username" required=""  formControlName="username">
-                <input type="password" name="pswd" placeholder="Password" required=""  formControlName="password">
-                <button class="lgbutton">Login</button>
+                <input type="text" name="username" placeholder="Username" required="" formControlName="username">
+                <input type="password" name="pswd" placeholder="Password" required="" formControlName="password">
+                <button class="lgbutton" type="submit">Login</button>
+                <button class="lgbutton" type="reset">Cancel</button>
             </form>
         </div>
     </div>

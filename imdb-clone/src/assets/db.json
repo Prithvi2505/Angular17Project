@@ -7,18 +7,6 @@
       "role": "admin"
     },
     {
-      "id": "user2",
-      "password": "123456789",
-      "email": "user2@gmail.com",
-      "role": ""
-    },
-    {
-      "id": "user3",
-      "password": "12344567",
-      "email": "prithvigohil4@gmail.com",
-      "role": ""
-    },
-    {
       "id": "prithviGohil",
       "password": "prithvi",
       "email": "prithvigohil943@gmail.com",
@@ -40,6 +28,18 @@
       "id": "user7",
       "password": "zxcvb",
       "email": "prithvigohil548@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "user9",
+      "password": "123456789",
+      "email": "prithvigohil943@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "user10",
+      "password": "12345",
+      "email": "prithvigohil943@gmail.com",
       "role": "user"
     }
   ],

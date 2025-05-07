@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Store } from '@ngrx/store';
 import { showalert } from '../../Store/Common/App.Action';
-import { User } from '../../Store/Model/User.model';
-import { beginRegister } from '../../Store/User/User.action';
+import { User, UserCred } from '../../Store/Model/User.model';
+import { beginLogin, beginRegister } from '../../Store/User/User.action';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.clear();
   }
   ngOnInit() {
-    
+    localStorage.clear()
   }
   proceedRegistration(){
     if(this.registerForm.valid){
@@ -50,23 +50,35 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  proceedLogin() {
+  proceedLogin(){
     if(this.loginForm.valid){
-      this.auth.getByCode(this.loginForm.value.username).subscribe( res => {
-        this.userData = res;
-        if(this.userData.password === this.loginForm.value.password){
-          sessionStorage.setItem('username',this.userData.id)
-          sessionStorage.setItem('userRole', this.userData.role)
-          this.router.navigate(['home'])
-        }
-        else{
-          alert("Wrong Credentials")
-        }
-      })
-    }
-    else{
-      alert("Wrong Credentials")
+      const _obj:UserCred ={
+        id : this.loginForm.value.username as string,
+        password: this.loginForm.value.password as string,
+      }
+      this.store.dispatch(beginLogin({usercred:_obj}))
     }
   }
+
+  // proceedLogin() {
+  //   if(this.loginForm.valid){
+  //     // this.auth.getByCode(this.loginForm.value.username).subscribe( res => {
+  //     //   this.userData = res;
+  // //       if(this.userData.password === this.loginForm.value.password){
+  // //         sessionStorage.setItem('username',this.userData.id)
+  // //         sessionStorage.setItem('userRole', this.userData.role)
+  // //         this.router.navigate(['home'])
+  // //       }
+  // //       else{
+  // //         alert("Wrong Credentials")
+  // //       }
+  // //     })
+  // //   }
+  // //   else{
+  // //     alert("Wrong Credentials")
+  // //   }
+
+  
+  // }
 
 }
