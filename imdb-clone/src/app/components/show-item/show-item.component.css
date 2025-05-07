@@ -48,3 +48,7 @@ default-image {
     border-radius: 5px;
     object-fit: cover;
 }
+button {
+    padding: 0;
+    margin: 0;
+}

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { Store } from '@ngrx/store';
+import { showalert } from '../../Store/Common/App.Action';
+import { User } from '../../Store/Model/User.model';
+import { beginRegister } from '../../Store/User/User.action';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +13,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
+
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -20,7 +25,7 @@ export class LoginComponent implements OnInit {
     role: new FormControl(''),
   })
   userData:any;
-  constructor(private router: Router, private auth : AuthService){
+  constructor(private router: Router, private auth : AuthService,private store:Store){
     sessionStorage.clear();
   }
   ngOnInit() {
@@ -28,12 +33,20 @@ export class LoginComponent implements OnInit {
   }
   proceedRegistration(){
     if(this.registerForm.valid){
-      this.auth.proceedRegister(this.registerForm.value).subscribe(res => {
-        alert("Registered successfully")
-      })
+      // this.auth.proceedRegister(this.registerForm.value).subscribe(res => {
+      //   alert("Registered successfully")
+      // })
+      const _userobj:User ={
+        id: this.registerForm.value.id as string,
+        password: this.registerForm.value.password as string,
+        email: this.registerForm.value.email as string,
+        role:'user'
+      }
+      this.store.dispatch(beginRegister({userdata:_userobj}))
+      this.store.dispatch(showalert({message:"Registered Successfully", resulttype:'pass'}))
     }
     else {
-      alert("please enter valid data")
+      this.store.dispatch(showalert({message:"Failed to register",resulttype:'fail'}))
     }
   }
 

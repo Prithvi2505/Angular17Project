@@ -17,6 +17,30 @@
       "password": "12344567",
       "email": "prithvigohil4@gmail.com",
       "role": ""
+    },
+    {
+      "id": "prithviGohil",
+      "password": "prithvi",
+      "email": "prithvigohil943@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "user5",
+      "password": "asdfgh",
+      "email": "user5@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "user6",
+      "password": "12345",
+      "email": "user6@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "user7",
+      "password": "zxcvb",
+      "email": "prithvigohil548@gmail.com",
+      "role": "user"
     }
   ],
   "newMovie": [

@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -47,6 +48,12 @@ import {
 } from '@angular/material/dialog';
 import { UpdateMovieComponent } from './page/update-movie/update-movie.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { Userreducer } from './Store/User/User.Reducer';
+import { UserEffects } from './Store/User/User.Effects';
+import { AppEffects } from './Store/Common/App.Effects';
 
 @NgModule({
   declarations: [
@@ -92,6 +99,10 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
     MatDialogActions,
     MatDialogClose,
     MatIconModule,
+    MatSnackBarModule,
+    StoreModule.forRoot({user:Userreducer}, {}),
+    EffectsModule.forRoot([UserEffects,AppEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
     provideAnimationsAsync(),
