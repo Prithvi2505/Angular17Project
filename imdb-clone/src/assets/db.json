@@ -45,13 +45,6 @@
   ],
   "newMovie": [
     {
-      "id": "1",
-      "name": "one",
-      "genre": "Crime",
-      "releaseDate": "2025-04-30T18:30:00.000Z",
-      "duration": 12
-    },
-    {
       "id": "2",
       "name": "two",
       "genre": "Crime",

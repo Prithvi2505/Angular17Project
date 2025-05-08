@@ -45,4 +45,9 @@ export class NgAuthService {
       return userdata.role;
     } return undefined;
   }
+
+  DuplicateId(id:string){
+    return this.http.get<UserInfo[]>(this.baseApiUrl+`?id=${id}`)
+  }
+
 }

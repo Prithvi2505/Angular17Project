@@ -1,7 +1,7 @@
 import { NgAuthService } from "../../services/ng-auth.service";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { beginLogin, beginRegister } from "./User.action";
-import { catchError, exhaustMap,map,of } from "rxjs";
+import { beginLogin, beginRegister, duplicateUser, duplicateUserSuccess } from "./User.action";
+import { catchError, exhaustMap,map,of, switchMap } from "rxjs";
 import { Router } from "@angular/router";
 import { showalert } from "../Common/App.Action";
 import { Injectable } from "@angular/core";
@@ -42,7 +42,23 @@ export class UserEffects {
             )
         })
     )
-
     )
+    _duplicateUser = createEffect(() => 
+        this.action$.pipe(
+            ofType(duplicateUser),
+            switchMap((action) => {
+                return this.service.DuplicateId(action.id).pipe(
+                    switchMap((data) => {
+                        if(data.length > 0){
+                            return of(duplicateUserSuccess({isduplicate:true}),showalert({message:"User Id Already Exist ", resulttype:"fail"}))
+                        }
+                        return of(duplicateUserSuccess({isduplicate:false}))
+                    }),
+                    catchError((_error) => of(showalert({message:"Registeration Failed",resulttype:"fail"})))
+                )
+            })
+        )
+    
+        )
     
 }

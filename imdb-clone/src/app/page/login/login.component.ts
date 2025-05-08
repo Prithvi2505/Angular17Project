@@ -5,7 +5,8 @@ import { AuthService } from '../../services/auth.service';
 import { Store } from '@ngrx/store';
 import { showalert } from '../../Store/Common/App.Action';
 import { User, UserCred } from '../../Store/Model/User.model';
-import { beginLogin, beginRegister } from '../../Store/User/User.action';
+import { beginLogin, beginRegister, duplicateUser } from '../../Store/User/User.action';
+import { isDuplicateUser } from '../../Store/User/User.Selector';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ import { beginLogin, beginRegister } from '../../Store/User/User.action';
 })
 export class LoginComponent implements OnInit {
 
+    isDuplicate = false;
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -42,8 +44,13 @@ export class LoginComponent implements OnInit {
         email: this.registerForm.value.email as string,
         role:'user'
       }
+      if(!this.isDuplicate){
       this.store.dispatch(beginRegister({userdata:_userobj}))
       this.store.dispatch(showalert({message:"Registered Successfully", resulttype:'pass'}))
+    }
+    else{
+      this.store.dispatch(showalert({message:"User Already exist", resulttype:'fail'}))
+    }
     }
     else {
       this.store.dispatch(showalert({message:"Failed to register",resulttype:'fail'}))
@@ -57,6 +64,22 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.value.password as string,
       }
       this.store.dispatch(beginLogin({usercred:_obj}))
+    }
+  }
+
+  funcDuplicateUser(){
+    const id = this.registerForm.value.id as string;
+    if(id!=''){
+      this.store.dispatch(duplicateUser({id:id}));
+      this.store.select(isDuplicateUser).subscribe(item => {
+        const isexist = item ;
+        if(isexist){
+          this.isDuplicate =true;
+          this.registerForm.controls.id.reset();
+          this.registerForm.controls.email.reset();
+          this.registerForm.controls.password.reset();
+        }
+      })
     }
   }
 

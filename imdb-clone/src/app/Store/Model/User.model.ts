@@ -16,5 +16,5 @@ export interface UserInfo {
     role?:string
 }
 export interface UserModel extends EntityState<User>{
-    
+    isDuplicate:boolean
 }
